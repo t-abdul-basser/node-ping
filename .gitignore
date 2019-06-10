@@ -166,7 +166,4 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
-<<<<<<< HEAD
-=======
 .env.js
->>>>>>> 55d987a945067f0bc218430b496fe498889f005e

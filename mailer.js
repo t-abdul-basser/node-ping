@@ -1,38 +1,3 @@
-<<<<<<< HEAD
-
-/*
-   Module for sending emails
-*/
-
-var nodemailer = require('nodemailer');
-
-
-/*
-    Mailer function
-
-    @param - (Object) opts - mailing options
-    @param - (Function) fn - callback function
-*/
-var mailer = function (opts, fn) {
-
-    // Send maail
-    try {
-      var transporter = nodemailer.createTransport();
-
-      transporter.sendMail({
-        from: opts.from,
-        to: opts.to,
-        subject: opts.subject,
-        html: opts.body
-      });
-    }
-    catch (err) {
-        fn('Nodemailer could not send Mail', '');
-    }
-};
-
-module.exports = mailer;
-=======
 "use strict";
 
 
@@ -58,4 +23,3 @@ module.exports.sendEmail = function(opts, fn) {
 
   mailgun.messages().send(data, fn);
 };
->>>>>>> 55d987a945067f0bc218430b496fe498889f005e
