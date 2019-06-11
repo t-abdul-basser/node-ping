@@ -18,8 +18,9 @@
     "http ping"
   ],
   "dependencies": {
-    "mailgun-js": "^0.21.0",
-    "ping-monitor": "^0.2.0"
+    "ping-monitor": "^0.2.0",
+    "log4js": "^3.0.6",
+    "log4js-node-microsoft-teams": "^1.0.2"
   },
   "author": "Qawelesizwe Mlilo",
   "license": "MIT",

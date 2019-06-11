@@ -8,27 +8,15 @@
 **/
 module.exports = [
     {
+        url: 'https://discovery.dbmi.columbia.edu/atlas/',
+        interval: 15
+    },
+    {
+        url: 'https://achilles.sis.nyp.org/#/home',
+        interval: 15
+    },
+    {
         url: 'http://node-ping.herokuapp.com',
-        interval: 15
-    },
-    {
-        url: 'http://video-download.herokuapp.com',
-        interval: 15
-    },
-    {
-        url: 'https://nodeza.co.za',
-        interval: 15
-    },
-    {
-        url: 'https://blog.ragingflame.co.za',
-        interval: 12
-    },
-    {
-        url: 'https://ragingflamesolutions.co.za',
-        interval: 15
-    },
-    {
-        url: 'https://nodetube.ragingflame.co.za',
         interval: 15
     }
 ];

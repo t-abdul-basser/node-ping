@@ -2,8 +2,7 @@
 
 
 const url = require('url');
-const mailer = require('./mailer');
-
+const logger = require('./logger');
 
 function nodeza (req, res) {
 
@@ -15,7 +14,8 @@ function nodeza (req, res) {
     });
 
     req.on('end', function () {
-      mailer({
+      logger.info('Messge from NodeZA ' + data);
+      /* mailer({
         subject: 'Messge from NodeZA',
         body: data
       },
@@ -26,7 +26,7 @@ function nodeza (req, res) {
         else {
           console.log(message);
         }
-      });
+      }); */
 
       res.writeHead(200);
       res.end();

@@ -3,7 +3,7 @@
 const Ping = require('ping-monitor');
 const http = require('http');
 const websites = require('./websites');
-const mailer = require('./mailer');
+const logger = require('./logger');
 const router = require('./router');
 const monitors = [];
 const port = process.env.PORT || 3008;
@@ -22,44 +22,25 @@ function pingServers() {
 
 
     monitor.on('up', function (res) {
+        //TODO: remove console.log      
         console.log('Yay!! ' + res.website + ' is up.');
+        logger.log('Yay!! ' + res.website + ' is up.');
     });
 
 
     monitor.on('down', function (res) {
-        mailer.sendEmail({
-          subject: res.website + ' is down',
-          body: '<p>Time: ' + monitor.getFormatedDate(res.time) + '</p><p>Website: ' + res.website + ' </p><p>Message: ' + res.statusMessage + ' </p>'
-        },
-        function (err, message) {
-          if (err) {
-            console.error(err.message);
-          }
-          else {
-            console.log(res.website + ' is down. Email sent!');
-          }
-        });
+      logger.log(res.website + ' is down -' + 'Time: ' + monitor.getFormatedDate(res.time) + 'Website: ' + res.website + ' Message: ' + res.statusMessage);
     });
 
 
     monitor.on('error', function (res) {
-        mailer.sendEmail({
-          subject: res.website + ' is down',
-          body: '<p>Time: ' + monitor.getFormatedDate(res.time) + '</p><p>Website: ' + res.website + ' </p><p>Message: ' + res.statusMessage + ' </p>'
-        },
-        function (err, message) {
-          if (err) {
-            console.error(err.message);
-          }
-          else {
-            console.log(res.website + ' is down. Email sent!');
-          }
-        });
+        logger.log(res.website + ' is down -' + 'Time: ' + monitor.getFormatedDate(res.time) + 'Website: ' + res.website + ' Message: ' + res.statusMessage)
     });
 
 
     monitor.on('stop', function (website) {
         console.log(website + ' monitor has stopped.');
+        logger.log(website + ' monitor has stopped.')
     });
 
 
