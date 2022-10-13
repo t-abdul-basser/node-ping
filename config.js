@@ -4,10 +4,12 @@ const envVars = require('./.env');
 
 
 module.exports = {
-  mailgun: {
-    apiKey: envVars.apiKey,
-    domain: envVars.domain,
-    email: envVars.email
-  },
-  deliveryEmail: envVars.deliveryEmail
+  deliveryEmail: envVars.deliveryEmail,
+  mailer: {
+    host: envVars.smtpHost,
+    port: envVars.smtpPort,
+    email: envVars.email,
+    user: envVars.smtpUser,
+    password: envVars.smtpPwd
+  }
 };
