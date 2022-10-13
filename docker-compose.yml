@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  node-ping:
+    build: .
+    ports:
+      - "3008:3008"
+    volumes:
+      - ./websites.js:/app/websites.js:ro
